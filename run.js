@@ -9,3 +9,20 @@ signals.forEach((d) => {
 
 const backtesting = new Backtest(candles, signalsMap);
 const result = backtesting.start();
+
+const Chart = require('cli-chart');
+const chart = new Chart({
+    xlabel: 'trades',
+    ylabel: 'usd',
+    direction: 'y',
+    width: result.trades.length,
+    height: 35,
+    lmargin: 5,
+    step: 1
+});
+result.trades.forEach((trade, index) => {
+	chart.addBar(trade.amount + trade.profit, trade.profit > 0 ? 'green' : 'red');
+});
+
+chart.draw();
+process.exit();

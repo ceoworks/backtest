@@ -19,6 +19,9 @@ test('takeprofit should work fine', () => {
     takeProfit: 0.05,
     positionEntry: 3436.2,
     positionType: 'none',
+		profitTrades: 1,
+		unprofitTrades: 0,
+		totalTrades: 1,
     trades:
      [ { type: 'long',
          entry: 3436.2,
@@ -40,6 +43,9 @@ test('stoploss should work fine', () => {
 	  takeProfit: 0.05,
 	  positionEntry: 3691,
 	  positionType: 'none',
+		profitTrades: 0,
+		unprofitTrades: 1,
+		totalTrades: 1,
 	  trades:
 	   [ { type: 'long',
 	       entry: 3691,
