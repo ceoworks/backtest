@@ -1,4 +1,4 @@
-const Backtest = require('../index');
+const Backtest = require('../lib');
 const candles = require('./mocks/testCandles.json');
 const candlesStopLoss = require('./mocks/testCandlesStopLoss.json');
 const signals = require('./mocks/getSignals');
