@@ -1,7 +1,9 @@
 const signals = require('./signals.json');
-const signalsMap = {};
 
-signals.forEach((d) => {
-	signalsMap[d.date] = d;
-});
-module.exports = signalsMap;
+module.exports = function getSignals(positionType = 'long') {
+	const signalsMap = {};
+	signals.forEach((s) => {
+		signalsMap[s.date] = {...s, positionType};
+	});
+	return signalsMap;
+};
