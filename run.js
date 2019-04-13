@@ -1,16 +1,17 @@
+const Chart = require('cli-chart');
 const Backtest = require('./lib');
 let candles = require('./BTC_1H_CANDLES.json');
 let signals = require('./signals');
+let shortSignals = require('./shortSignals');
+
 signals = Object.values(signals[0]);
 const signalsMap = {};
 signals.forEach((d) => {
 	signalsMap[d.date] = d;
 });
-
-const backtesting = new Backtest(candles, signalsMap);
+Object.assign(signalsMap, shortSignals);
+const backtesting = new Backtest({candles, signals: signalsMap});
 const result = backtesting.start();
-
-const Chart = require('cli-chart');
 const chart = new Chart({
     xlabel: 'trades',
     ylabel: 'usd',
