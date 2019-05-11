@@ -85,8 +85,8 @@ test('short takeprofit should work fine', () => {
 		trades:
 		 [{
 		 	type: 'short',
-			close: 3513.67,
-			entry: 3698.6,
+		 	close: 3513.67,
+		 	entry: 3698.6,
 		 	stopLoss: 0.03,
 		 	takeProfit: 0.05,
 		 	amount: 1000,
