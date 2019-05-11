@@ -1,0 +1,23 @@
+{
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "extends": ["airbnb"],
+  "plugins": ["jest"],
+  "parser": "babel-eslint",
+  "rules": {
+    "no-tabs": 0,
+    "indent": [2, "tab", {
+			"SwitchCase": 1
+		}],
+    "object-curly-spacing": [2, "never"],
+    "class-methods-use-this": 0,
+    "no-console": 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  }
+}
