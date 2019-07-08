@@ -5,6 +5,7 @@ const candles = require('./mocks/testCandlesLongTakeProfit.json');
 const candlesStopLoss = require('./mocks/testCandlesLongStopLoss.json');
 const candlesShort = require('./mocks/testCandlesShortTakeProfit.json');
 const candlesShortStopLoss = require('./mocks/testCandlesShortStopLoss.json');
+const candlesLongLimitOrder = require('./mocks/testCandlesLongLimitOrder.json');
 const candlesIndicators = require('./mocks/testCandlesIndicators.js');
 const signalsLong = require('./mocks/getSignals')();
 const signalsShort = require('./mocks/getSignals')(config.positionTypes.SHORT);
@@ -137,4 +138,38 @@ test('indicators', () => {
 	expect(calculatedIndicators.rsi14).toEqual(expectedRsi14);
 	expect(calculatedIndicators.ema50).toEqual(expectedEma50);
 	expect(calculatedIndicators.ema200).toEqual(expectedEma200);
+});
+test('startegy with limit orders', () => {
+	const strategy = function strategyWithLimitOrders(
+		candleIndex, candle, positionTypes, orderTypes,
+	) {
+		const price = 3437.56;
+		this.placeOrder(price, positionTypes.LONG, orderTypes.LIMIT);
+	};
+	const backtesting = new Backtest({candles: candlesLongLimitOrder, strategy});
+	const result = backtesting.start();
+	const expectedBactestResult = {
+		balanceUSD: 1045.9,
+		stopLoss: 0.03,
+		takeProfit: 0.05,
+		positionEntry: 3437.56,
+		positionType: 'none',
+		trades:
+       [{
+       	type: 'long',
+       	entry: 3437.56,
+       	stopLoss: 0.03,
+       	takeProfit: 0.05,
+       	amount: 1000,
+       	close: 3609.438,
+       	fee: 4.1,
+       	profit: 45.9,
+       }],
+		maximumBalance: 1045.9,
+		minimumBalance: 1000,
+		totalTrades: 1,
+		profitTrades: 1,
+		unprofitTrades: 0,
+	};
+	expect(result).toEqual(expectedBactestResult);
 });
