@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "yarn lint",
+    "pretest": "yarn lint:ts && yarn build:ts",
     "test": "yarn jest",
     "jest": "jest --coverage",
-    "lint": "eslint ./lib ./test --fix"
+    "lint": "eslint ./src ./test --fix",
+    "lint:ts": "tslint -c tslint.json -p . --fix",
+    "build:ts": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +31,12 @@
     "eslint-plugin-react": "^7.12.4",
     "jest": "^24.5.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "tslint": "5.16.0",
+    "tslint-eslint-rules": "5.4.0",
+    "typescript-tslint-plugin": "0.5.4",
+    "tslint-no-focused-test": "0.5.0",
+    "typescript": "3.2.4"
   },
   "pre-commit": [
     "test"

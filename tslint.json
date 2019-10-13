@@ -1,0 +1,55 @@
+{
+	"extends": ["tslint:latest", "tslint-eslint-rules"],
+	"rulesDirectory": [
+		"tslint-no-focused-test"
+	],
+	"rules": {
+		"max-line-length": [true, 140],
+		"no-empty": false,
+		"no-default-export": true,
+		"no-focused-test": true,
+		"no-var-requires": false,
+		"no-require-imports": true,
+		"no-empty-interface": false,
+		"no-submodule-imports": false,
+		"no-object-literal-type-assertion": false,
+		"no-implicit-dependencies": [true, "dev"],
+		"no-namespace": [true, "allow-declarations"],
+		"object-curly-spacing":  [true, "never"],
+		"object-literal-key-quotes": [true, "as-needed"],
+		"object-literal-sort-keys": false,
+		"max-classes-per-file": [true, 3],
+		"quotemark": [true, "single", "jsx-double"],
+		"indent": [true, "tabs", 2],
+		"callable-types": false,
+		"interface-name" : [true, "never-prefix"],
+		"typedef": [true, "call-signature", "property-declaration"],
+		"no-multi-spaces": [true, {
+			"exceptions": {"PropertyAssignment": false, "OtherException": "true|false"}
+		}],
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "any",
+				"named-imports-order": "case-insensitive"
+			}
+		],
+		"member-ordering": [
+			true,
+			{
+				"order": [
+					"public-static-field",
+					"private-static-field",
+					"public-instance-field",
+					"public-constructor",
+					"private-instance-field",
+					"private-constructor",
+					"public-instance-method",
+					"protected-instance-method",
+					"private-instance-method"
+				],
+				"alphabetize": true
+			}
+		]
+	}
+}

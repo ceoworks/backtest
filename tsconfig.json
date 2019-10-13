@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "plugins": [
+            {
+                "name": "typescript-tslint-plugin"
+            }
+        ],
+        "module": "CommonJS",
+        "outDir": "./lib",
+        "target": "ES2017",
+        "sourceMap": true
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

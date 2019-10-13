@@ -1,5 +1,5 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-const config = require('../lib/config');
+const config = require('../src/config');
 const Backtest = require('../lib');
 const candles = require('./mocks/testCandlesLongTakeProfit.json');
 const candlesStopLoss = require('./mocks/testCandlesLongStopLoss.json');
@@ -134,7 +134,6 @@ test('indicators', () => {
 	const backtesting = new Backtest({candles: candlesIndicators, indicators});
 	backtesting.start();
 	const calculatedIndicators = backtesting.getIndicators();
-	expect(calculatedIndicators.indicatorNames).toEqual(indicators);
 	expect(calculatedIndicators.rsi14).toEqual(expectedRsi14);
 	expect(calculatedIndicators.ema50).toEqual(expectedEma50);
 	expect(calculatedIndicators.ema200).toEqual(expectedEma200);
