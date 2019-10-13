@@ -1,7 +1,7 @@
 const Backtest = require('./lib');
 const candles = require('./bitfinex_BTCUSD_15m.json');
 const {ema200Strategy} = require('./strategies');
-const drawChart = require('./lib/util/drawChart');
+const drawChart = require('./src/util/drawChart');
 
 const indicators = [
 	{name: 'rsi', period: 14},

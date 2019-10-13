@@ -1,5 +1,5 @@
 const signals = require('./signals.json');
-const {orderTypes} = require('../../lib/config');
+const {orderTypes} = require('../../src/config');
 
 module.exports = function getSignals(positionType = 'long', orderType = orderTypes.MARKET) {
 	const signalsMap = {};
